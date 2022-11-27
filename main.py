@@ -1,16 +1,20 @@
-# This is a sample Python script.
-
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+from genetic_algorithm import genetic_algorithm
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+def onemax(x):
+    return -sum(x)
 
 
-# Press the green button in the gutter to run the script.
+def main():
+    n_iter = 100
+    n_bits = 20
+    n_pop = 100
+    r_cross = 0.9
+    r_mut = 1.0 / float(n_bits)
+    best, score = genetic_algorithm(onemax, n_bits, n_iter, n_pop, r_cross, r_mut)
+    print('Done!')
+    print('f(%s) = %f' % (best, score))
+
+
 if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    main()
